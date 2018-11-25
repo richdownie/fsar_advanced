@@ -1,11 +1,12 @@
 class WidgetsIndex
 
-  def initialize(browser)
+  def initialize(browser, domain)
     @browser = browser
+    @domain = domain
   end
 
   def visit
-    @browser.get("http://fullstackautomationwithruby.com/widgets")
+    @browser.get(@domain + "/widgets")
   end
 
 end

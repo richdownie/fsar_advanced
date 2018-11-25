@@ -4,6 +4,7 @@ require 'cucumber'
 require 'rspec'
 require 'pry'
 require_relative '../page_objects/widgets_index_page'
+require_relative '../page_objects/widget_new_page'
 
 caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: [ "--headless" ]})
 
@@ -13,5 +14,7 @@ Before do
   else
     @browser = Selenium::WebDriver.for :chrome
   end
-  @widgets_index = WidgetsIndex.new(@browser)
+  @domain = 'https://fullstackautomationwithruby.com'
+  @widgets_index = WidgetsIndex.new(@browser, @domain)
+  @widget_new = WidgetNew.new(@browser, @domain)
 end
